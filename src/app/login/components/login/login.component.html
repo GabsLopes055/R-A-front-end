@@ -1,1 +1,44 @@
-<p>login works!</p>
+<main>
+  <section class="section-form">
+
+    <mat-card class="card-login mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>Faça o login em sua conta</mat-card-title>
+        <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+      <img class="img-login" mat-card-image src="../../../../assets/imgs/RA Logo.png" alt="">
+      <mat-card-content>
+        <form class="form" [formGroup]="loginForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Usuário</mat-label>
+            <input matInput placeholder="Informe seu Usuário" required formControlName="usuario">
+            <mat-error *ngIf="this.loginForm.invalid">Campo obrigado</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput placeholder="Forneça sua senha" type="password" required formControlName="password">
+            <mat-error *ngIf="this.loginForm.invalid">Campo obrigado</mat-error>
+          </mat-form-field>
+        </form>
+        <div class="funcoesUsuario">
+          <div class="manterConectado">
+            <mat-checkbox>
+              <h6>Marter-me Conectado</h6>
+            </mat-checkbox>
+
+          </div>
+          <div class="esqueciMinhaSenha">
+            <h6>Esqueci minha senha</h6>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="submit" mat-raised-button color="primary" [disabled]="this.loginForm.invalid">Logar</button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+  <section class="section-secondary">
+    <img class="img-logo" src="../../../../assets/imgs/logo-login.svg" alt="">
+  </section>
+</main>
