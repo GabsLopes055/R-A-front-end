@@ -1,22 +1,22 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-
-  isLoading: boolean = true
+  isLoading: boolean = true;
   loginForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    // private notificacao: NotificacaoService,
-    // private service: LoginService,
-    // private router: Router
-  ) {
+    private route: Router
+     // private notificacao: NotificacaoService,
+  ) // private service: LoginService,
+  {
     this.isLoading = false;
     this.loginForm = this.criarFormularioLogin();
   }
@@ -28,4 +28,7 @@ export class LoginComponent {
     });
   }
 
+  logar() {
+    this.route.navigate(['dashboard'])
+  }
 }

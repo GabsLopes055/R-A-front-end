@@ -5,7 +5,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('../app/login/login.module').then((module) => module.LoginModule),
+      import('../app/login/module/login.module').then((module) => module.LoginModule),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('../app/dashboard/module/dashboard.module').then((module) => module.DashboardModule),
   },
 ];
 
